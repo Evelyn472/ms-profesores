@@ -1,4 +1,4 @@
-FROM eclipse-temurin:25-jdk AS builder
+FROM eclipse-temurin:17-jdk-jammy AS builder
 WORKDIR /app
 
 COPY mvnw .
@@ -9,7 +9,7 @@ COPY src ./src
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-FROM eclipse-temurin:25-jdk
+FROM eclipse-temurin:17-jdk-jammy
 LABEL maintainer="Evelyn - Proyecto Colegio"
 
 WORKDIR /app
